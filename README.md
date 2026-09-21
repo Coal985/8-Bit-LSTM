@@ -42,7 +42,8 @@ An example output is [full_generated.wav](https://github.com/Coal985/8-Bit-LSTM/
 - **Independent voice heads:** Each voice is predicted by its own output layer, so coordination between voices (harmony, rhythm locking) is only learned indirectly through the shared LSTM state.
 - **Limited training:** A short training run on a single dataset, with no extensive hyperparameter tuning or architecture comparison, again constrained by available hardware.
 - **Style control:** The model generates in the blended style of the whole dataset. Game- or genre-specific generation is not implemented.
-
+- **Error accumulation:** Each generated step is fed back in as input for the next, so small mistakes compound and the output drifts further from the training data the longer a clip runs.
+  
 ## Future Work
 
 Longer context windows or a transformer architecture, conditioning on game or style, joint modeling of voices, and more training and tuning.
